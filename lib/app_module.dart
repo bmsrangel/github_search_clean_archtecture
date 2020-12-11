@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:github_seach_clean_archtecture/modules/search/presenter/search/search_bloc.dart';
+import 'package:github_seach_clean_archtecture/modules/search/presenter/search/search_page.dart';
 
 import 'app_widget.dart';
 import 'modules/search/domain/usecases/search_by_text.dart';
@@ -14,10 +16,13 @@ class AppModule extends MainModule {
         Bind((i) => GithubDatasource(i())),
         Bind((i) => SearchRepositoryImpl(i())),
         Bind((i) => SearchByTextImpl(i())),
+        Bind((i) => SearchBloc(i())),
       ];
 
   @override
-  List<ModularRouter> get routers => throw UnimplementedError();
+  List<ModularRouter> get routers => [
+        ModularRouter('/', child: (_, __) => SearchPage()),
+      ];
 
   @override
   Widget get bootstrap => AppWidget();

@@ -3,17 +3,17 @@ import 'dart:convert';
 import '../../domain/entities/result_search.dart';
 
 class ResultSearchModel extends ResultSearch {
-  final String title;
-  final String content;
-  final String img;
+  final String login;
+  final String htmlUrl;
+  final String avatarUrl;
 
-  ResultSearchModel({this.title, this.content, this.img});
+  ResultSearchModel({this.login, this.htmlUrl, this.avatarUrl});
 
   Map<String, dynamic> toMap() {
     return {
-      'title': title,
-      'content': content,
-      'img': img,
+      'login': login,
+      'html_url': htmlUrl,
+      'avatar_url': avatarUrl,
     };
   }
 
@@ -21,9 +21,9 @@ class ResultSearchModel extends ResultSearch {
     if (map == null) return null;
 
     return ResultSearchModel(
-      title: map['title'],
-      content: map['content'],
-      img: map['img'],
+      login: map['login'],
+      htmlUrl: map['html_url'],
+      avatarUrl: map['avatar_url'],
     );
   }
 
