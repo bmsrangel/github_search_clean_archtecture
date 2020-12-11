@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:github_seach_clean_archtecture/modules/search/domain/usecases/search_by_text.dart';
-import 'package:github_seach_clean_archtecture/modules/search/presenter/search/states/state.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../domain/usecases/search_by_text.dart';
+import 'states/state.dart';
 
 class SearchBloc extends Bloc<String, SearchState> {
   SearchBloc(this.usecase) : super(SearchStart());
